@@ -7,7 +7,7 @@ cmd({
     pattern: "removemembers",
     alias: ["kickall", "endgc", "endgroup"],
     desc: "Remove all non-admin members from the group.",
-    react: "🎉",
+    react: "🗑️",
     category: "group",
     filename: __filename,
 }, 
@@ -17,27 +17,27 @@ async (conn, mek, m, {
     try {
         // Check if the command is used in a group
         if (!isGroup) {
-            return reply("This command can only be used in groups.");
+            return reply("*ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴄᴀɴ ᴏɴʟʏ ʙᴇ ᴜsᴇᴅ ɪɴ ɢʀᴏᴜᴘs.*");
         }
 
         // Get the bot owner's number dynamically
         const botOwner = conn.user.id.split(":")[0];
         if (senderNumber !== botOwner) {
-            return reply("Only the bot owner can use this command.");
+            return reply("ᴏɴʟʏ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.*");
         }
 
         if (!isBotAdmins) {
-            return reply("I need to be an admin to execute this command.");
+            return reply("*ɪ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.*");
         }
 
         const allParticipants = groupMetadata.participants;
         const nonAdminParticipants = allParticipants.filter(member => !groupAdmins.includes(member.id));
 
         if (nonAdminParticipants.length === 0) {
-            return reply("There are no non-admin members to remove.");
+            return reply("*ᴛʜᴇʀᴇ ᴀʀᴇ ɴᴏ ɴᴏɴ-ᴀᴅᴍɪɴ ᴍᴇᴍʙᴇʀs ᴛᴏ ʀᴇᴍᴏᴠᴇ.*");
         }
 
-        reply(`Starting to remove ${nonAdminParticipants.length} non-admin members...`);
+        reply(`*sᴛᴀʀᴛɪɴɢ ᴛᴏ ʀᴇᴍᴏᴠᴇ ${nonAdminParticipants.length} ɴᴏɴ-ᴀᴅᴍɪɴ ᴍᴇᴍʙᴇʀs...*`);
 
         for (let participant of nonAdminParticipants) {
             try {
@@ -48,7 +48,7 @@ async (conn, mek, m, {
             }
         }
 
-        reply("Successfully removed all non-admin members from the group.");
+        reply("sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ᴀʟʟ ɴᴏɴ-ᴀᴅᴍɪɴ ᴍᴇᴍʙᴇʀs ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ.*");
     } catch (e) {
         console.error("Error removing non-admin users:", e);
         reply("An error occurred while trying to remove non-admin members. Please try again.");

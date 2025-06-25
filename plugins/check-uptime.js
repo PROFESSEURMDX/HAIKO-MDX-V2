@@ -1,126 +1,110 @@
+
 const { cmd } = require('../command');
 const { runtime } = require('../lib/functions');
 const config = require('../config');
+const pkg = require('../package.json');
 
 cmd({
     pattern: "uptime",
-    alias: ["runtime", "up"],
+    alias: ["runtime", "run"],
     desc: "Show bot uptime with stylish formats",
     category: "main",
     react: "⏱️",
     filename: __filename
 },
-async (conn, mek, m, { from, reply }) => {
+async (conn, mek, m, { from, reply, args }) => {
     try {
         const uptime = runtime(process.uptime());
-        const startTime = new Date(Date.now() - process.uptime() * 1000);
-        
-        // Style 1: Classic Box
-        const style1 = `╭───『 UPTIME 』───⳹
-│
-│ ⏱️ ${uptime}
-│
-│ 🚀 Started: ${startTime.toLocaleString()}
-│
-╰────────────────⳹
-${config.DESCRIPTION}`;
+        const seconds = Math.floor(process.uptime());
+        const startTime = new Date(Date.now() - seconds * 1000);
+        const version = pkg.version || "1.0.0";
 
-        // Style 2: Minimalist
-        const style2 = `•——[ UPTIME ]——•
-  │
-  ├─ ⏳ ${uptime}
-  ├─ 🕒 Since: ${startTime.toLocaleTimeString()}
-  │
-  •——[ ${config.BOT_NAME} ]——•`;
+        const styles = [
+`╭────『 *UPTIME* 』───╮
+│ ╭╌┈┈┈┈┈┄┄┈╌┈⊷
+│ ┆⏱️ ${uptime}
+│ ┆🧭 ${seconds} seconds
+│ ┆🚀 Started: ${startTime.toLocaleString()}
+│ ╰┄┄┄┄┄┄┄┄┄┄┈ ┈⊷
+╰────────────────╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-        // Style 3: Fancy Borders
-        const style3 = `▄▀▄▀▄ BOT UPTIME ▄▀▄▀▄
+`╭╼═⧼𝗨𝗣𝗧𝗜𝗠𝗘 𝗦𝗧𝗔𝗧𝗨𝗦⧽═╾╮
+┃╭╼═══════════━┈⊷
+┃│♢ ʀᴜɴɴɪɴɢ: ${uptime}
+┃│♢ sᴇᴄᴏɴᴅs: ${seconds}
+┃│♢ sɪɴᴄᴇ: ${startTime.toLocaleDateString()}
+┃╰╼════════════┈⊷
+╰╼═══════════════╾╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-  ♢ Running: ${uptime}
-  ♢ Since: ${startTime.toLocaleDateString()}
-  
-  ${config.DESCRIPTION}`;
+`╭╼━━━━━━━━━━━━━━╾╮
+│        *⟬ UPTIME STATUS ⟭*  
+│╭┅┅┅┅┅┅┅┅┅┅┅╍⊷
+││ • ᴛɪᴍᴇ: ${uptime}
+││ • sᴇᴄᴏɴᴅs: ${seconds}
+││ • sᴛᴀʀᴛᴇᴅ: ${startTime.toLocaleString()}
+│╰┅┅┅┅┅┅┅┅┅┅┅┈⊷
+╰╼━━━━━━━━━━━━━━╾╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-        // Style 4: Code Style
-        const style4 = `┌──────────────────────┐
-│  ⚡ UPTIME STATUS ⚡  │
-├──────────────────────┤
-│ • Time: ${uptime}
-│ • Started: ${startTime.toLocaleString()}
-│ • Version: 4.0.0
-└──────────────────────┘`;
+`╭╼┅⧼ 🅤🅟🅣🅘🅜🅔 ⧽┉╾╮
+┋ ⏳ ${uptime}
+┋ 🕰️ ${startTime.toLocaleString()}
+┋ 🔢 ${seconds} sᴇᴄᴏɴᴅs
+╰╼┉┅┉┅┉┅┉┅┉┅┉╍┅╾╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-        // Style 5: Modern Blocks
-        const style5 = `▰▰▰▰▰ UPTIME ▰▰▰▰▰
+`╭╼═══════════════╾╮
+║  *𝑯𝑨𝑰𝑲𝑶 𝑴𝑫𝑿 𝑼𝑷𝑻𝑰𝑴𝑬*
+║  ʀᴜɴᴛɪᴍᴇ: ${uptime}
+║  sᴇᴄᴏɴᴅs:: ${seconds}
+║  sɪɴᴄᴇʀᴇʟʏ: ${startTime.toLocaleString()}
+╰════════════════╾╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-  ⏳ ${uptime}
-  🕰️ ${startTime.toLocaleString()}
-  
-  ${config.DESCRIPTION}`;
+`> ╭━━━━━━━━━━━━━━╾╮
+> ┃⏱️ *UᎮTIMᏋ ᎦTᏘTUᎦ* ⏱️
+> ┃🟢 ᴏɴʟɪɴᴇ ғᴏʀ: ${uptime}
+> ┃🔢 sᴇᴄᴏɴᴅs: ${seconds}
+> ┃📅 sɪɴᴄᴇ: ${startTime.toLocaleString()}
+> ╰━━━━━━━━━━━━━━╾╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`,
 
-        // Style 6: Retro Terminal
-        const style6 = `╔══════════════════════╗
-║   ${config.BOT_NAME} UPTIME    ║
-╠══════════════════════╣
-║ > RUNTIME: ${uptime}
-║ > SINCE: ${startTime.toLocaleString()}
-╚══════════════════════╝`;
+`╭━━━━━━━━━━━━━━━━╮
+┃  𝐇𝐀𝐈𝐊𝐎 𝐌𝐃𝐗 𝐔𝐏𝐓𝐈𝐌𝐄  
+┃╭┅┅┅┅┅┅┅┅┅┅┉┉┈⊷
+┃╏◈ ᴅᴜʀᴀᴛɪᴏɴ: ${uptime}
+┃╏◈ sᴇᴄᴏɴᴅs: ${seconds}
+┃╏◈ sᴛᴀʀᴛ ᴛɪᴍᴇs: ${startTime.toLocaleString()}
+┃╏◈ sᴛᴀʙɪʟɪᴛʏ: 100%
+┃╰┅┅┅┅┅┅┅┉┅┅┅┈⊷
+╰━━━━━━━━━━━━━━━━╯
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴘʀᴏғ xᴛʀᴇᴍᴇ*`
+        ];
 
-        // Style 7: Elegant
-        const style7 = `┌───────────────┐
-│  ⏱️  UPTIME  │
-└───────────────┘
-│
-│ ${uptime}
-│
-│ Since ${startTime.toLocaleDateString()}
-│
-┌───────────────┐
-│  ${config.BOT_NAME}  │
-└───────────────┘`;
+        let selectedStyle;
+        if (args[0] && args[0].toLowerCase().startsWith("style")) {
+            const index = parseInt(args[0].replace("style", "")) - 1;
+            if (!isNaN(index) && styles[index]) {
+                selectedStyle = styles[index];
+            } else {
+                return reply(`❌ Style not found.\n✅ Use: style1 to style${styles.length}`);
+            }
+        } else {
+            selectedStyle = styles[Math.floor(Math.random() * styles.length)];
+        }
 
-        // Style 8: Social Media Style
-        const style8 = `⏱️ *Uptime Report* ⏱️
-
-🟢 Online for: ${uptime}
-📅 Since: ${startTime.toLocaleString()}
-
-${config.DESCRIPTION}`;
-
-        // Style 9: Fancy List
-        const style9 = `╔♫═⏱️═♫══════════╗
-   ${config.BOT_NAME} UPTIME
-╚♫═⏱️═♫══════════╝
-
-•・゜゜・* ✧  *・゜゜・•
- ✧ ${uptime}
- ✧ Since ${startTime.toLocaleDateString()}
-•・゜゜・* ✧  *・゜゜・•`;
-
-        // Style 10: Professional
-        const style10 = `┏━━━━━━━━━━━━━━━━━━┓
-┃  UPTIME ANALYSIS  ┃
-┗━━━━━━━━━━━━━━━━━━┛
-
-◈ Duration: ${uptime}
-◈ Start Time: ${startTime.toLocaleString()}
-◈ Stability: 100%
-◈ Version:  4.0.0
-
-${config.DESCRIPTION}`;
-
-        const styles = [style1, style2, style3, style4, style5, style6, style7, style8, style9, style10];
-        const selectedStyle = styles[Math.floor(Math.random() * styles.length)];
-
-        await conn.sendMessage(from, { 
-            text: selectedStyle,
+        await conn.sendMessage(from, {
+            image: { url: 'https://files.catbox.moe/gt7zhk.jpg' },
+            caption: selectedStyle,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363398101781980@newsletter',
-                    newsletterName: config.OWNER_NAME || '𝐇𝐀𝐈𝐊𝐎-𝐌𝐃𝐗-𝐕𝟐',
+                    newsletterName: '𝐏𝐑𝐎𝐅-𝐗𝐓𝐑𝐄𝐌𝐄',
                     serverMessageId: 143
                 }
             }

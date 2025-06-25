@@ -3,7 +3,7 @@ const { cmd } = require("../command");
 cmd({
   pattern: "vv",
   alias: ["viewonce", 'vv2'],
-  react: '🐳',
+  react: '👀',
   desc: "Owner Only - retrieve quoted message back to user",
   category: "owner",
   filename: __filename
@@ -17,7 +17,7 @@ cmd({
 
     if (!match.quoted) {
       return await client.sendMessage(from, {
-        text: "*🍁 Please reply to a view once message!*"
+        text: "*🤲🏻 ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴠɪᴇᴡ ᴏɴᴄᴇ ᴍᴇssᴀɢᴇ!*"
       }, { quoted: message });
     }
 
