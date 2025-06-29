@@ -20,7 +20,7 @@
   <img src="https://komarev.com/ghpvc/?username=HAIKO-MDX-VII&label=VISITORS&style=flat-square&color=0002FF" />
 </p>
 
-> **CURRENT BOT VERSION ➺`2.0.0`**  
+> **CURRENT BOT VERSION ➺`2.0.`**  
 
 ---
 
