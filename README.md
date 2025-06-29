@@ -61,14 +61,14 @@
 <div style="background: #111111; padding: 15px; border-radius: 10px; border-left: 3px solid #00ffff;">
   
 --- 
-> **PAIRING LINK➻ 01**
+> **MET ZAGOW POU KONEKTE➻ 01**
   <a href='https://haiko-mdx-v2-session.onrender.com' target="_blank">
     <img src='https://img.shields.io/badge/PAIR_CODE_1-00FFFF?style=for-the-badge&logo=matrix&logoColor=white&labelColor=000000'/>
   </a></br>
   
   <div style="height: 10px;"></div>
   
-> **PAIRING LINK➻ 02**
+> **MET ZAGOW POU KONEKTE➻ 02**
   <a href='https://haiko-mdx-v2-session.onrender.com/pair' target="_blank">
     <img src='https://img.shields.io/badge/PAIR_CODE_2-FF00FF?style=for-the-badge&logo=matrix&logoColor=white&labelColor=000000'/>
   </a>
@@ -91,7 +91,7 @@
 ### ⚙️ CONFIGURATION➼ `.env` File
 
 ```env
-SESSION_ID="HAIKO~MDX~"
+SESSION_ID="KANEKI~MDX~"
 AUTO_READ_STATUS=true
 STATUS_READ_MSG="*Status Seen By HAIKO-MDX âš¡*"
 AUTO_STATUS_REPLY=false
@@ -100,7 +100,7 @@ MODE="public"
 WELCOME=false
 AUTO_READ_MESSAGES=false
 AUTO_TYPING=false
-OWNER_NAME="HAIKO MDX"
+OWNER_NAME="KANEKI MDX"
 OWNER_NUMBER="529633982655"
 AUTO_RECORDING=false
 ALWAYS_ONLINE=false
@@ -221,7 +221,7 @@ jobs:
 
 ## 🗃️ PROJECT ARCHITECTS
 <div align="center">
-  <a href="https://github.com/PROFESSEURMDX">
+  <a href="https://github.com/kanekiken509">
     <img src="https://github-readme-stats.vercel.app/api?username=JawadYT36&show_icons=true&theme=dark&border_color=00ffff&title_color=00ffff&icon_color=00ffff" width="400"/>
   </a>
 </div>
