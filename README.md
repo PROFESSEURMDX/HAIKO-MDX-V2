@@ -230,7 +230,7 @@ jobs:
   <img src="https://github.com/PROFESSEURMDX/HAIKO-MDX-V2/blob/main/assets/futuretech.gif?raw=true" width="100%"/>
 </div>
 
-## 👑 HAIKO-MDX STATUS
+## 👑 KANEKI-MD BOT STATU
 
 ```diff
 + Project Status: Active
