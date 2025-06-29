@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=80&pause=1000&color=459BF7FF&center=true&vCenter=true&width=1000&height=200&lines=HAIKO-MDX-V2;VERSION+2025;BY+PROF+XTREME" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=80&pause=1000&color=459BF7FF&center=true&vCenter=true&width=1000&height=200&lines=KANEKI-MDX;VERSION+2025;BY+KEN+XTREME" alt="Typing SVG" />
   </a>
 </p>
 
